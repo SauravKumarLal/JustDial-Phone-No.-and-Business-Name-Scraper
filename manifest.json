@@ -29,7 +29,7 @@
         "24": "assets/logo24.png",
         "32": "assets/logo32.png"
       },
-      "default_title": "My Email Scrapper",
+      "default_title": "Data Scrapper",
       "default_popup": "popup.html"
     },
     "manifest_version": 3

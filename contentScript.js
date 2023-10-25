@@ -1,39 +1,47 @@
-let scrapeEmails = document.getElementById('scrapeEmails');
+let scrapeData = document.getElementById('scrapeData');
+let list = document.getElementById('dataList');
 
-let list = document.getElementById('emailList');
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    let emails = request.emails;
-    // alert(emails);
+    let data = request.data;
 
-    if (emails == null || emails.length == 0) {
+    if (data == null || data.length === 0) {
         let li = document.createElement('li');
-        li.innerText = "No Email Found On This Page";
+        li.innerText = "No Data Found On This Page";
         list.appendChild(li);
-    }
-    else {
-        emails.forEach((emails) => {
+    } else {
+        data.forEach((item) => {
             let li = document.createElement('li');
-            li.innerText = emails;
+            li.innerText = item;
             list.appendChild(li);
         });
     }
-})
+});
 
-scrapeEmails.addEventListener("click", async () => {
-    // alert('hello');
+scrapeData.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        func: scrapeEmailAndName,
+        func: scrapeDataFromPage,
     });
-})
+});
 
-function scrapeEmailAndName() {
-    const emailRegEx = /[\w\.=-]+@[\w\.-]+\.[\w]{2,3}/gim;
+function scrapeDataFromPage() {
+    const titleElements = document.querySelectorAll('h2');
+    const phoneRegEx = /0\d{10}/gim;
+    // /(\+\d{1,2}\s?)?(\d{3}[-\s]?\d{3}[-\s]?\d{4}|\(\d{3}\)\s?\d{3}[-\s]?\d{4}|\d{10})/g;
+    
+    let titles = Array.from(titleElements, element => element.innerText);
+    let phoneMatches = document.body.innerText.match(phoneRegEx);
 
-    let emails = document.body.innerHTML.match(emailRegEx);
-    // alert(emails);
+    let data = [];
 
-    chrome.runtime.sendMessage({ emails });
+    if (titles && phoneMatches) {
+        for (let i = 0; i < titles.length && i < phoneMatches.length; i++) {
+            data.push(titles[i]);
+            data.push(phoneMatches[i]);
+        }
+    }
+
+    chrome.runtime.sendMessage({ data });
 }
