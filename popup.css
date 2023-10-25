@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    min-width: 200px;
+    /* min-height: 100px; */
+    /* background-color: red; */
+}
+
+.center{
+    text-align: center;
+}
+
+.btn1{
+    color: aliceblue;
+    padding: 10px;
+    margin: 100px;
+    background-color: rgb(40, 73, 101);
+}
+
+ul{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+    list-style: square;
+}
