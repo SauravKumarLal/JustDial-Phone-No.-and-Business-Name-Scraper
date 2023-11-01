@@ -1,3 +1,3 @@
 # JustDial-Phone-No.-and-Business-Name-Scraper
 
-![Image Alt Text](./assets/logo.png)
+![alt text](https://github.com/SauravKumarLal/JustDial-Phone-No.-and-Business-Name-Scraper/blob/assets/logo.jpg?raw=true)
