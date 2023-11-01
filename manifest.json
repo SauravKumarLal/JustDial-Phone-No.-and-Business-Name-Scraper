@@ -2,25 +2,36 @@
   "name": "Justdial Scrapper",
   "version": "0.1.0",
   "description": "Scrape email from justdial webapp.",
-  "permissions": ["storage", "activeTab", "scripting"],
-  "host_permissions": ["https://www.justdial.com/*"],
-  
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.justdial.com/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["https://www.justdial.com/*"],
-      "js": ["contentScript.js"]
+      "matches": [
+        "https://www.justdial.com/*"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
     }
   ],
   "web_accessible_resources": [
     {
-      "resources":[
-          "assets/logo32.png",
+      "resources": [
+        "assets/logo32.png",
         "assets/bookmark.png",
         "assets/play.png",
         "assets/delete.png",
         "assets/save.png"
       ],
-      "matches": ["https://www.justdial.com/*"]
+      "matches": [
+        "https://www.justdial.com/*"
+      ]
     }
   ],
   "action": {
