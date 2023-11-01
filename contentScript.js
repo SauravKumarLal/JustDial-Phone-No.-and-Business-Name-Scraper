@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         }
-
         const rows = data;
         const worksheet = XLSX.utils.json_to_sheet(rows);
         const workbook = XLSX.utils.book_new();
