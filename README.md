@@ -2,3 +2,8 @@
 
 ![logo](https://github.com/SauravKumarLal/JustDial-Phone-No.-and-Business-Name-Scraper/assets/94238309/875b9526-d3ee-43c2-ac10-9a3800e4a6af)
 
+## Description
+
+Designed and developed a custom Chrome extension to efficiently extract business names and phone numbers from JustDial.com, a prominent online business directory. This project showcases my proficiency in web scraping and browser extension development, demonstrating the ability to automate data extraction from websites, enabling businesses to access valuable insights effortlessly. 
+
+Additionally, the extension includes export functionality to generate Excel files for easy access and in-depth analysis.
